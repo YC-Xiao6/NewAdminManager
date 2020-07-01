@@ -1,0 +1,90 @@
+body{
+    background-image: url(../img/bag.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+/*面板视图和窗体身体视图*/
+.x-panel-body-default,.x-window-body-default {
+    border: none;
+    background: #a6bbd9;
+    opacity: 0.8;
+}
+/*整个窗体*/
+.x-window-default{
+    border: #b0ccf2;
+    border-radius: 20px;
+    background: #a6bbd9;
+    opacity: 0.8;
+    /*阴影*/
+    box-shadow: none;
+}
+/*标题样式*/
+.x-window-header-title-default ,.x-window-header-default-top{
+    color: #020d17;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: tahoma, arial, verdana, sans-serif;
+    line-height: 30px;
+    height: 45px;
+    background: #a6bbd9;
+    opacity: 0.8;
+    box-shadow: none;
+}
+/*标题位置*/
+.x-title-align-left{
+    text-align: center;
+}
+/*from身体部分的头标题*/
+.x-form-item-label-default{
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+/*from身体部分的输入*/
+.x-form-text{
+    border-radius: 5px;
+    font-size: 15px;
+}
+/*表单一行*/
+.x-form-item{
+    padding-top: 10px;
+    /*padding-left:15px*/
+    /*width: 10px;*/
+}
+/*输入表单*/
+.x-panel-body-default .x-autocontainer-innerCt{
+    display: table-cell;
+    height: 100%;
+    padding: 10px 10px 10px 25px;
+    vertical-align: top;
+}
+
+/*.uname1{*/
+/*    background-color: white;*/
+/*    !*border-width: 10px;*!*/
+
+/*}*/
+/*!*表单的外框样式*!*/
+/*.x-form-trigger-wrap-default  {*/
+/*    border:none;*/
+/*    background-color: #0048c9;*/
+/*   */
+/*    font-size: 10px;*/
+/*}*/
+/*!*设置表单输入框样式*!*/
+/*.x-form-text-wrap-default{*/
+/*    border: none;*/
+/*}*/
+
+
+/*.uname1 .x-form-trigger-wrap-default{*/
+/*    border-style: solid;*/
+/*    width: 0px;*/
+/*    background-color: #DFE9F6;*/
+/*    border-right: 0px solid;*/
+/*    border-top: 0px solid;*/
+/*    border-left: 0px solid;*/
+/*    border-bottom: #000000 1px solid;',*/
+/*    background-image: none;*/
+/*}*/
