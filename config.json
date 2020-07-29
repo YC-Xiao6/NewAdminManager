@@ -7,7 +7,7 @@
   "dbConfig": {
     "host": "127.0.0.1",
     "port": 3306,
-    "dbname": "demo",
+    "dbname": "demo1",
     "user": "root",
     "passwd": "root",
     "charset": "utf8"

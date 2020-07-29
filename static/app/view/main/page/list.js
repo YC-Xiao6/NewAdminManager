@@ -1,6 +1,6 @@
 Ext.define('AdminManager.view.main.page.list', {
     extend: 'Ext.grid.Panel',
-    xtype: 'mainlist',
+    xtype: 'mainlistgrid',
     id:'listgrid',
     requires: [
         'AdminManager.store.Admin',
@@ -63,15 +63,33 @@ Ext.define('AdminManager.view.main.page.list', {
         beforedocumentsave: 'onBeforeDocumentSave',
         dataready: 'onDataReady'
     },
+    features: [{
+        ftype: 'summary',
+        dock: 'bottom',
+    }],
     // 表单信息
     columns: [
-        {text: '序号',xtype: 'rownumberer', sortable: false,width: 80,align:'center',},
-        { text: 'ID',  dataIndex: 'id',hidden:true,align:'center',ignoreExport: true,
+        {text: '序号',xtype: 'rownumberer', sortable: false,width: 80,align:'center',
+            summaryType: 'count',
+            summaryRenderer: function (value, summaryData, dataIndex) {
+                return '汇总：';
+            }
+            },
+        { text: 'ID',  dataIndex: 'id',hidden:false,align:'center',ignoreExport: true,
             // 关闭菜单排序
-        menuDisabled:true,sortable:false},
+        menuDisabled:true,sortable:false,
+            summaryType: 'sum',
+            summaryRenderer: function (value, summaryData, dataIndex) {
+                return value.toLocaleString();
+            }
+            },
         { text: '名称',  dataIndex: 'name' , align:'center',width: 100,locked:true,
         editor:{
                 allowBlank:false
+            },
+            summaryType: 'count',
+            summaryRenderer: function (value, summaryData, dataIndex) {
+                return value.toLocaleString();
             }
             },
         { text: '密码', dataIndex: 'passwd',align:'center', width: 150,

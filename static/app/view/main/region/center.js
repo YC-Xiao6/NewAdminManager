@@ -1,46 +1,42 @@
-Ext.define('AdminManager.view.main.region.center', {  
-    extend: 'Ext.panel.Panel',  
+Ext.define('AdminManager.view.main.region.center', {
+    extend: 'Ext.tab.Panel',
     xtype: 'main-center',
     controller:'adminController',
     uses: [
         'AdminManager.view.main.page.list',
-        'AdminManager.view.main.page.adminController'
+        'AdminManager.view.main.page.adminController',
     ],
 
     referenceHolder: true,
-    layout: 'border',
+    // layout: 'border',
     height: window.innerHeight-50,
 
-    defaults:{
+    defaults: {
         collapsible: false,
-        split: false
+        split: false,
+        // bodyPadding: 20,
     },
     
 
     items: [
-        // {
-        //     reference:'listTop',
-        //     xtype:'list-top',
-        //     region:'north',
-        // },
-        // {
-        //     reference:'oneForm',
-        //     xtype:'one-form',
-        //     region :'north',
-        //     split: true
-
-        // },
         {
+            title: '详情信息',
             reference:'list',
-            xtype:'mainlist',
-            region :'center'
+            xtype:'mainlistgrid',
+            region :'center',
+            glyph: 'f039@FontAwesome',
         },
-        // {
-        //     reference:'oneBottom',
-        //     xtype:'one-bottom',
-        //     region :'south',
-        //     height:180,
-        //     split: true
-        // }
+        {
+            title: '标签页2',
+            html: 'This is tab 2 content.',
+            glyph: 'f02d@FontAwesome',
+        },
+        {
+            title: '标签页2',
+            html: 'This is tab 2 content.',
+            closable:true,
+            glyph: 'f02d@FontAwesome',
+        },
+
     ],
 });  

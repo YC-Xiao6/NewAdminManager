@@ -13,7 +13,11 @@ Ext.define('AdminManager.view.main.MainController', {
         'main-left': {//组件别名，表示要控制的是该组件  
             selectionchange: 'onTreeNavSelectionChange'  
         }  
-    }, 
+    },
+    // 加入路由
+    routes:{
+        ":id":'handleRoute'
+    },
 
     onLoginOutClick: function () {
         // Remove the localStorage key/value
@@ -25,11 +29,12 @@ Ext.define('AdminManager.view.main.MainController', {
 
     onTreeNavSelectionChange: function(selModel, records) {  
         var record = records[0];  
-        if (record) {  
+        if (record) {
+            //默认散列
             this.redirectTo(record.getId()); 
         }  
     },
-    redirectTo:function(idStr){
+    handleRoute:function(idStr){
         // var id = parseInt(idStr.substr(idStr.length-1,1));
         switch (idStr) {
             case "admin":

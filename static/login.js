@@ -67,8 +67,24 @@ var checks = new Ext.form.TextField( {
     // inputBorders:false,
     emptyText: "请输入验证码",
     blankText : '验证码不能为空',
-        vtype: 'check',
+    vtype: 'check',
     columnWidth: 0.68,
+    enableKeyEvents: true, //触发事件（如果为false，不能点击任何事件） 与listeners对应
+    scope: this,//default scope (this pointer)
+    listeners:{
+        //监听回车
+        specialkey:function(field,e){
+            if (e.getKey()==13){
+                //up 得到dom(window)
+                //lookupReference 得到component的引用
+                //触发自定义事件
+                var btn = Ext.getCmp('sb');
+                if(btn.handler){
+                    btn.handler.call(btn.scope || btn, btn, e);
+                }
+            }
+        }
+    },
     // listeners:{
     //     click: {
     //         element: 'el', //触发点击事件
@@ -93,7 +109,7 @@ var checks = new Ext.form.TextField( {
     // style:'margin:20px'
     // margin:"15 15 0 0",
     // shadow:true,
-    
+
 });
 var checkImg = new Ext.panel.Panel({
     id : 'checkImg',
@@ -137,10 +153,12 @@ Ext.onReady(function() {
         id: "form",
         //定义表单元素
         items: [uname,pwd,checks,checkImg],
+
         buttons: [{
             text: '登录',
             type: 'submit',
             id: 'sb',
+            reference:'loginbutton',
             //定义表单提交事件
             handler: save
         }, {
@@ -171,8 +189,9 @@ Ext.onReady(function() {
                 success : function(form, action) {
                     if (action.result.success) {
                         //action 回调值
-                        window.sessionStorage.setItem("LoggedIn", action.result.name);
-                        console.log(action.result.tokenString)
+                        // window.sessionStorage.setItem("LoggedIn", action.result.name);
+                        window.sessionStorage.setItem("token", action.result.tokenString);
+                        // Ext.MessageBox.alert(action.result.tokenString);
                         // window.localStorage.setItem("LoggedIn", action.result.name);\
                         document.location.href='manager.html';
                     }

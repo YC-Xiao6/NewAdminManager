@@ -356,6 +356,7 @@ Ext.define('AdminManager.view.main.page.adminController',{
             grid.getStore().load();
         }
     },
+
     exportTo: function(btn) {
         var cfg = Ext.merge({
             title: 'Grid export',

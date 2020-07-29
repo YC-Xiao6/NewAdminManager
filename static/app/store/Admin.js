@@ -5,7 +5,7 @@ Ext.define('AdminManager.store.Admin', {
     model:'AdminManager.model.Admin',
     autoLoad :true,
     remoteSort:true,
-    pageSize: 10,
+    pageSize: 5,
     proxy: { // Ext.util.ObjectTemplate
         type: 'ajax',
         url: 'admin/index',

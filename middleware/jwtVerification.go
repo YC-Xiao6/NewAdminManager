@@ -15,7 +15,7 @@ var (
 	JWT *jwt.Middleware
 )
 
-func initJWT() {
+func InitJWT() {
 	JWT = jwt.New(jwt.Config{
 		ErrorHandler: func(ctx context.Context, err error) {
 			if err == nil {
@@ -32,5 +32,6 @@ func initJWT() {
 
 		SigningMethod: jwt.SigningMethodHS256,
 	})
+
 }
 

@@ -193,12 +193,11 @@ func (a *AdminController)Login(ctx iris.Context) mvc.Result {
 			// 签发时间
 			"iat": time.Now().Unix(),
 			// 设定过期时间，便于测试，设置1分钟过期
-			"exp": time.Now().Add(1 * time.Minute * time.Duration(1)).Unix(),
+			"exp": time.Now().Add(10 * time.Minute * time.Duration(1)).Unix(),
 		})
 
 		// 使用设置的秘钥，签名生成jwt字符串
 		tokenString, _ := token.SignedString([]byte("My Secret"))
-
 		sess.Start(ctx).Set("ADMINNAME", data.Name)
 		return mvc.Response{
 			Object: map[string]interface{}{
